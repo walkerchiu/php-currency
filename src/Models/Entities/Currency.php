@@ -2,10 +2,10 @@
 
 namespace WalkerChiu\Currency\Models\Entities;
 
-use WalkerChiu\Core\Models\Entities\Entity;
 use WalkerChiu\Core\Models\Entities\LangTrait;
+use WalkerChiu\Core\Models\Entities\UuidEntity;
 
-class Currency extends Entity
+class Currency extends UuidEntity
 {
     use LangTrait;
 

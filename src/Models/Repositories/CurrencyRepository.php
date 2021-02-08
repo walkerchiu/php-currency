@@ -22,7 +22,7 @@ class CurrencyRepository extends Repository
 
     /**
      * @param String  $host_type
-     * @param Int     $host_id
+     * @param String  $host_id
      * @param String  $code
      * @param Array   $data
      * @param Int     $page
@@ -167,7 +167,7 @@ class CurrencyRepository extends Repository
 
     /**
      * @param String $host_type
-     * @param Int    $host_id
+     * @param String $host_id
      * @param String $code
      * @return Array
      */
@@ -200,7 +200,7 @@ class CurrencyRepository extends Repository
 
     /**
      * @param String $host_type
-     * @param Int    $host_id
+     * @param String $host_id
      * @return Array
      */
     public function getEnabledSettingId($host_type = null, $host_id = null)
@@ -219,7 +219,7 @@ class CurrencyRepository extends Repository
 
     /**
      * @param String $host_type
-     * @param Int    $host_id
+     * @param String $host_id
      * @return Currency
      */
     public function getBaseSetting($host_type = null, $host_id = null)

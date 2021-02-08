@@ -17,7 +17,7 @@ class CurrencyFormRequest extends FormRequest
         $request = Request::instance();
         $data = $this->all();
         if ($request->isMethod('put') && empty($data['id']) && isset($request->id)) {
-            $data['id'] = (int) $request->id;
+            $data['id'] = (string) $request->id;
             $this->getInputSource()->replace($data);
         }
 
@@ -51,7 +51,7 @@ class CurrencyFormRequest extends FormRequest
     {
         $rules = [
             'host_type'     => 'required_with:host_id|string',
-            'host_id'       => 'required_with:host_type|integer|min:1',
+            'host_id'       => 'required_with:host_type|string',
             'serial'        => '',
             'abbreviation'  => 'required|string',
             'mark'          => 'required|string',
@@ -66,7 +66,7 @@ class CurrencyFormRequest extends FormRequest
 
         $request = Request::instance();
         if ($request->isMethod('put') && isset($request->id)) {
-            $rules = array_merge($rules, ['id' => ['required','integer','min:1','exists:'.config('wk-core.table.currency.currencies').',id']]);
+            $rules = array_merge($rules, ['id' => ['required','string','exists:'.config('wk-core.table.currency.currencies').',id']]);
         }
 
         return $rules;
@@ -81,14 +81,12 @@ class CurrencyFormRequest extends FormRequest
     {
         return [
             'id.required'             => trans('php-core::validation.required'),
-            'id.integer'              => trans('php-core::validation.integer'),
-            'id.min'                  => trans('php-core::validation.min'),
+            'id.string'               => trans('php-core::validation.string'),
             'id.exists'               => trans('php-core::validation.exists'),
             'host_type.required_with' => trans('php-core::validation.required_with'),
             'host_type.string'        => trans('php-core::validation.string'),
             'host_id.required_with'   => trans('php-core::validation.required_with'),
-            'host_id.integer'         => trans('php-core::validation.integer'),
-            'host_id.min'             => trans('php-core::validation.min'),
+            'host_id.string'          => trans('php-core::validation.string'),
             'abbreviation.required'   => trans('php-core::validation.required'),
             'abbreviation.string'     => trans('php-core::validation.string'),
             'mark.required'           => trans('php-core::validation.required'),

@@ -78,7 +78,7 @@ class CurrencyService
 
     /**
      * @param String $abbreviation
-     * @param Int    $id
+     * @param String $id
      * @return Boolean
      */
     public function checkExistAbbreviation(String $abbreviation, $id = null)
@@ -100,7 +100,7 @@ class CurrencyService
 
     /**
      * @param String $host_type
-     * @param Int    $host_id
+     * @param String $host_id
      * @param String $code
      * @return Array
      */
@@ -111,7 +111,7 @@ class CurrencyService
 
     /**
      * @param String $host_type
-     * @param Int    $host_id
+     * @param String $host_id
      * @return Array
      */
     public function getEnabledSettingId($host_type = null, $host_id = null)
@@ -121,7 +121,7 @@ class CurrencyService
 
     /**
      * @param String $host_type
-     * @param Int    $host_id
+     * @param String $host_id
      * @return Currency
      */
     public function getBaseSetting($host_type = null, $host_id = null)
